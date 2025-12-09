@@ -8,5 +8,12 @@
     "formatter": {
         "indentStyle": "space",
         "indentWidth": 4
+    },
+    "linter": {
+        "rules": {
+            "style": {
+                "noNonNullAssertion": "off"
+            }
+        }
     }
 }
