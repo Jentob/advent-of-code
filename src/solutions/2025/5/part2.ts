@@ -1,7 +1,7 @@
-import { getInputData, readLines } from "@/utils";
+import { getInputFile, readLines } from "@/utils";
 
 async function main() {
-    const inputFile = await getInputData(2025, 5);
+    const inputFile = await getInputFile(2025, 5);
 
     const gen = readLines(inputFile.stream());
 

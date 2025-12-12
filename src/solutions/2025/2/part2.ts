@@ -1,7 +1,7 @@
-import { getInputData } from "@/utils";
+import { getInputFile } from "@/utils";
 
 async function main() {
-    const inputFile = await getInputData(2025, 2);
+    const inputFile = await getInputFile(2025, 2);
     const text = await inputFile.text();
 
     let sum = 0;

@@ -9,7 +9,7 @@ const dataDirectory = path.join(
 );
 const fileName = (year: number, day: number) => `input_${year}_${day}.txt`;
 
-async function fetchInputData(
+async function fetchInputFile(
     year: number,
     day: number,
     url: URL,
@@ -32,7 +32,7 @@ async function fetchInputData(
     return file;
 }
 
-export async function getInputData(
+export async function getInputFile(
     year: number,
     day: number,
     options: { refresh?: boolean } = {},
@@ -40,7 +40,7 @@ export async function getInputData(
     const { refresh = false } = options;
     const file = Bun.file(path.join(dataDirectory, fileName(year, day)));
     if (file.size && !refresh) return file;
-    return fetchInputData(
+    return fetchInputFile(
         year,
         day,
         new URL(`https://adventofcode.com/${year}/day/${day}/input`),
@@ -71,4 +71,8 @@ export async function* readLines(
     if (buffer) {
         yield buffer;
     }
+}
+
+export function isNumber(string: string): boolean {
+    return string.trim() !== "" && /^[+-]?(\d+(\.\d+)?|\.\d+)$/.test(string);
 }

@@ -1,4 +1,4 @@
-import { getInputData, readLines } from "@/utils";
+import { getInputFile, readLines } from "@/utils";
 
 function rotateDial(dialPosition: number, move: string): [number, number] {
     const amount = Number(move.slice(1));
@@ -19,7 +19,7 @@ function rotateDial(dialPosition: number, move: string): [number, number] {
 }
 
 async function main() {
-    const inputFile = await getInputData(2025, 1);
+    const inputFile = await getInputFile(2025, 1);
 
     let count = 0;
     let dial = 50;
