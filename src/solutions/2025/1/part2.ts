@@ -25,7 +25,7 @@ async function main() {
     let dial = 50;
     let timesAtZero = 0;
 
-    for await (const line of readLines(inputFile.stream())) {
+    for await (const line of readLines(inputFile)) {
         [dial, timesAtZero] = rotateDial(dial, line);
         count += timesAtZero;
     }

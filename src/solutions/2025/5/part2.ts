@@ -3,7 +3,7 @@ import { getInputFile, readLines } from "@/utils";
 async function main() {
     const inputFile = await getInputFile(2025, 5);
 
-    const gen = readLines(inputFile.stream());
+    const gen = readLines(inputFile);
 
     const ranges: [number, number][] = [];
     const mergedRanges: [number, number][] = [];

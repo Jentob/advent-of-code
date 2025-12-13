@@ -47,9 +47,8 @@ export async function getInputFile(
     );
 }
 
-export async function* readLines(
-    stream: ReadableStream<Uint8Array>,
-): AsyncGenerator<string> {
+export async function* readLines(file: Bun.BunFile): AsyncGenerator<string> {
+    const stream = file.stream();
     const reader = stream.getReader();
     const decoder = new TextDecoder();
     let buffer = "";

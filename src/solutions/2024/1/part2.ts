@@ -7,7 +7,7 @@ async function main() {
 
     const list1: number[] = [];
     const list2: Map<number, number> = new Map();
-    for await (const line of readLines(inputFile.stream())) {
+    for await (const line of readLines(inputFile)) {
         const split = line.split(/\s+/).map(Number) as [number, number];
         list1.push(split[0]);
         list2.set(split[1], (list2.get(split[1]) ?? 0) + 1);

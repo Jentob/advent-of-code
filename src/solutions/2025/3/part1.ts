@@ -5,7 +5,7 @@ async function main() {
 
     let sum = 0;
 
-    for await (const line of readLines(inputFile.stream())) {
+    for await (const line of readLines(inputFile)) {
         const batteryBank = Array.from(line).map(Number);
 
         let first = -1;

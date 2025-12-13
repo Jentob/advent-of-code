@@ -14,7 +14,7 @@ async function main() {
 
     const grid: ("@" | ".")[][] = [];
     let i = 0;
-    for await (const line of readLines(inputFile.stream())) {
+    for await (const line of readLines(inputFile)) {
         grid[i] = Array.from(line) as ("@" | ".")[];
         i++;
     }
