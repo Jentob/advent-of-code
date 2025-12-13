@@ -16,7 +16,7 @@ async function main() {
     list2.sort((a, b) => a - b);
 
     for (let i = 0; i < list1.length; i++) {
-        sum += Math.abs(list1[i]! - list2[i]!);
+        sum += Math.abs(list1[i] - list2[i]);
     }
 
     console.log(sum);

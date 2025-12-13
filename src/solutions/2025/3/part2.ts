@@ -15,7 +15,7 @@ async function main() {
         for (const [i, joltage] of batteryBank.entries()) {
             for (let j = 0; j < amount; j++) {
                 if (
-                    batteriesToTurnOn[j]! < joltage &&
+                    batteriesToTurnOn[j] < joltage &&
                     i < batteryBank.length - amount + j + 1
                 ) {
                     batteriesToTurnOn[j] = joltage;

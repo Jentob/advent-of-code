@@ -19,7 +19,7 @@ async function main() {
     ranges.sort((a, b) => a[0] - b[0]);
 
     for (const range of ranges) {
-        const lastRange = mergedRanges[mergedRanges.length - 1]!;
+        const lastRange = mergedRanges[mergedRanges.length - 1];
 
         if (mergedRanges.length === 0 || lastRange[1] < range[0]) {
             mergedRanges.push(range);
@@ -36,7 +36,7 @@ async function main() {
 
         while (min <= max) {
             const mid = Math.floor((min + max) / 2);
-            const range = mergedRanges[mid]!;
+            const range = mergedRanges[mid];
 
             if (value >= range[0] && value <= range[1]) {
                 sum++;

@@ -23,8 +23,8 @@ async function main() {
     while (changed) {
         changed = false;
         for (let i = 0; i < grid.length; i++) {
-            for (let j = 0; j < grid[i]!.length; j++) {
-                if (grid[i]![j] === "@") {
+            for (let j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] === "@") {
                     let neighborCount = 0;
                     for (const [dx, dy] of neighbors) {
                         if (grid[i + dy]?.[j + dx] === "@") {
@@ -34,7 +34,7 @@ async function main() {
                     if (neighborCount < 4) {
                         count++;
                         changed = true;
-                        grid[i]![j] = "x";
+                        grid[i][j] = "x";
                     }
                 }
             }

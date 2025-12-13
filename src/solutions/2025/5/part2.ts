@@ -19,7 +19,7 @@ async function main() {
     ranges.sort((a, b) => a[0] - b[0]);
 
     for (const range of ranges) {
-        const lastRange = mergedRanges[mergedRanges.length - 1]!;
+        const lastRange = mergedRanges[mergedRanges.length - 1];
 
         if (mergedRanges.length === 0 || lastRange[1] < range[0]) {
             mergedRanges.push(range);
