@@ -48,27 +48,27 @@ export async function getInputFile(
 }
 
 export async function* readLines(file: Bun.BunFile): AsyncGenerator<string> {
-    const stream = file.stream();
-    const reader = stream.getReader();
+    const reader = file.stream().getReader();
     const decoder = new TextDecoder();
     let buffer = "";
 
-    while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
+    try {
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
 
-        buffer += decoder.decode(value, { stream: true });
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || "";
 
-        const lines = buffer.split("\n");
-        buffer = lines.pop() || "";
-
-        for (const line of lines) {
-            yield line;
+            for (const line of lines) yield line;
         }
-    }
 
-    if (buffer) {
-        yield buffer;
+        buffer += decoder.decode();
+
+        if (buffer) yield buffer;
+    } finally {
+        reader.releaseLock();
     }
 }
 
