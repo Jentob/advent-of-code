@@ -2,13 +2,13 @@ import { getInputFile } from "@/utils";
 
 async function main() {
     const inputFile = await getInputFile(2025, 2);
-    const text = await inputFile.text();
+    const inputData = await inputFile.text();
 
-    let sum = 0;
-
-    const ranges = text
+    const ranges = inputData
         .split(",")
         .map((range) => range.split("-").map(Number) as [number, number]);
+
+    let sum = 0;
 
     for (const [start, end] of ranges) {
         for (let i = start; i <= end; i++) {
